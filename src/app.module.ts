@@ -15,7 +15,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       useFactory: (configService: ConfigService) => ({
         type: 'mysql',
         host: configService.getOrThrow('DB_HOST'),
-        port: configService.getOrThrow('DB_PORT'),
+        port: parseInt(configService.getOrThrow('DB_PORT')),
         username: configService.get('DB_USER'),
         password: configService.get('DB_PASS'),
         database: configService.get('DB_NAME'),

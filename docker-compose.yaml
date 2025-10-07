@@ -7,7 +7,6 @@ services:
     command: npm run start:dev
     volumes:
       - .:/usr/src/app
-      - /usr/src/app/node_modules
     depends_on:
       - mysql
     ports:
