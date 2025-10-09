@@ -5,6 +5,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
 import { LoggerModule } from 'pino-nestjs';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { LoggerModule } from 'pino-nestjs';
     }),
     LoggerModule.forRoot(),
     UsersModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
