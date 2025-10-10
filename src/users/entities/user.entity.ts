@@ -1,5 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { IUser } from '../interfaces/user.interface';
+import { GroupMember } from '../../groups/entities/group-member';
 
 @Entity('users')
 export class User implements IUser {
@@ -14,4 +15,7 @@ export class User implements IUser {
 
   @Column()
   password: string;
+
+  @OneToMany(() => GroupMember, (membership) => membership.user)
+  groupMemberships: GroupMember[];
 }
