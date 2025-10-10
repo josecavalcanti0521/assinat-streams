@@ -26,7 +26,17 @@ import { AuthModule } from './auth/auth.module';
         synchronize: true,
       }),
     }),
-    LoggerModule.forRoot(),
+    LoggerModule.forRoot({
+      pinoHttp: {
+        transport: {
+          target: 'pino-pretty',
+          options: {
+            singleLine: true,
+            colorize: true,
+          },
+        },
+      },
+    }),
     UsersModule,
     AuthModule,
   ],
